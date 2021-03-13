@@ -19,7 +19,9 @@ ActiveRecord::Schema.define(version: 2021_03_10_223857) do
     t.string "name"
     t.float "time"
     t.float "goal"
+    t.float "progress"
     t.date "expiration_day"
+    t.string "img"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "user_id"

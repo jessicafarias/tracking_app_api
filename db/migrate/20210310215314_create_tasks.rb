@@ -4,7 +4,9 @@ class CreateTasks < ActiveRecord::Migration[6.0]
       t.string :name
       t.float :time
       t.float :goal
+      t.float :progress
       t.date :expiration_day
+      t.string :img
 
       t.timestamps
     end
