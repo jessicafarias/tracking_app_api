@@ -14,4 +14,4 @@ Rails.application.config.middleware.insert_before 0, Rack::Cors do
       methods: [:get, :post, :put, :patch, :delete, :options, :head]
   end
 end
-<img src="https://img.icons8.com/ultraviolet/40/000000/group-task.png"/>
+#<img src="https://img.icons8.com/ultraviolet/40/000000/group-task.png"/>
