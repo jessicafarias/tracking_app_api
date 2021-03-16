@@ -3,14 +3,12 @@ module Users
     before_action :authenticate_resource, only: [:destroy]
 
     def create
-      @user = User.new(user_params)
-      @user.password = params[:password_digest]
-      @user.password_confirmation = params[:password_digest]
-      if @user.save
-        create_token_and_set_header(@user, @user.name)
-        render_success(message: I18n.t('api_guard.registration.signed_up'))
+      init_resource(sign_up_params)
+      if resource.save
+        create_token_and_set_header(resource, resource_name)
+        render_success(message: headers["Access-Token"])
       else
-        render_error(422, object: @user)
+        render_error(422, object: resource)
       end
     end
 
@@ -21,9 +19,8 @@ module Users
 
     private
 
-
-    def user_params
-      params.permit(:email, :password_digest, :name)
+    def sign_up_params
+      params.permit(:email, :password, :password_confirmation, :name)
     end
   end
 end

@@ -1,6 +1,7 @@
 class TasksController < ApplicationController
+  before_action :authenticate_and_set_user
   def index
-    @tasks = Task.all
+    @tasks = User.find(@current_user.id).tasks
     render json: @tasks
   end
 
@@ -12,10 +13,10 @@ class TasksController < ApplicationController
         render json: @task.errors, status: :unprocessable_entity
     end
   end
-
+#
 
   def destroy
-    @task = Book.find(params[:id])
+    @task = Task.find(params[:id])
     @task.destroy
   end
 
