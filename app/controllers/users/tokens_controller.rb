@@ -5,10 +5,8 @@ module Users
 
     def create
       create_token_and_set_header(current_resource, resource_name)
-    
       @refresh_token.destroy
       blacklist_token if ApiGuard.blacklist_token_after_refreshing
-    
       render_success(message: I18n.t('api_guard.access_token.refreshed'))
     end
 
@@ -16,7 +14,6 @@ module Users
 
     def find_refresh_token
       refresh_token_from_header = request.headers['Refresh-Token']
-    
     if refresh_token_from_header
         @refresh_token = find_refresh_token_of(current_resource, refresh_token_from_header)
         return render_error(401, message: I18n.t('api_guard.refresh_token.invalid')) unless @refresh_token

@@ -5,7 +5,7 @@ ApiGuard.setup do |config|
 
   # Secret key for signing (encoding & decoding) the JWT access token
   # Default: 'secret_key_base' from Rails secrets 
-  # config.token_signing_secret = 'my_signing_secret'
+  config.token_signing_secret = 'my_signing_secret'
 
   # Invalidate old tokens on changing the password
   # Default: false

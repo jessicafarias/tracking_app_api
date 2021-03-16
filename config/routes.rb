@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   get 'user/update'
   get 'user/delete'
   resources :tasks
+  
   api_guard_routes for: 'users', controller: {
   registration: 'users/registration',
   authentication: 'users/authentication',
