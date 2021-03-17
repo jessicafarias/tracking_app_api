@@ -1,33 +1,30 @@
 class TasksController < ApplicationController
-  before_action :authenticate_and_set_user,only: [:index]
+  before_action :authenticate_and_set_user
+  before_action :authenticate_and_set_user_or_admin
+  skip_before_action :verify_authenticity_token, only: [:create]
+
   def index
-    @tasks = User.find(@current_user.id).tasks
+    @tasks = current_user.tasks
     render json: @tasks
   end
 
   def create
-    @task = User.first.tasks.new(task_params)
-    respond_to do |format|
+    @task = current_user.tasks.new(task_params)
       if @task.save
-        format.html { redirect_to @task, notice: 'User1 was successfully created.' }
-        render json: @task, status: :created, location: @task
+        render json: @task, message: task_params
       else
-        format.html { render :new }
         render json: @task.errors, status: :unprocessable_entity
       end
-    end
   end
-#
 
   def destroy
     @task = Task.find(params[:id])
     @task.destroy
   end
 
-
   private
 
   def task_params
-    params.permit(:name, :img, :goal, :time)
+    params.require(:task).permit(:name, :time, :goal, :progress, :expiration_day, :img)
   end
 end

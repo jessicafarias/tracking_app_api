@@ -1,9 +1,10 @@
 Rails.application.routes.draw do
+  resources :tasks
+
   get 'user/index'
   get 'user/create'
   get 'user/update'
   get 'user/delete'
-  resources :tasks
   
   api_guard_routes for: 'users', controller: {
   registration: 'users/registration',
