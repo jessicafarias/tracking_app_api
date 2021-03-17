@@ -11,7 +11,7 @@ class TasksController < ApplicationController
   def create
     @task = current_user.tasks.new(task_params)
       if @task.save
-        render json: @task, message: task_params
+        render_success(message: 'OK')
       else
         render json: @task.errors, status: :unprocessable_entity
       end
