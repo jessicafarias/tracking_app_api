@@ -1,6 +1,4 @@
 module TasksHelper
-
-
   def set_lists
     case params[:id]
     when 'yesterday'
@@ -8,12 +6,14 @@ module TasksHelper
 
     when 'week'
       @tasks = current_user.tasks.per_week
+    
+    when 'dates'
+      @tasks = current_user.tasks.list_of_dates
 
     else
       @tasks = current_user.tasks.today
     end
   end
-
 
   def get_progress (object)
     @time = object.time

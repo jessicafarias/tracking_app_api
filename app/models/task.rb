@@ -9,5 +9,6 @@ class Task < ApplicationRecord
   scope :per_week, -> { where("expiration_day<=? AND expiration_day>?", Date.today-7,Date.today-14) }
   scope :today, -> { where(expiration_day: Date.today)}
   scope :yesterday, -> {where(expiration_day: Date.today-1)}
-  scope :date, ->(date) { where("expiration_day=?", date) }
+  scope :date, ->(date) { where("expiration_day=?", Date.parse(date)) }
+  scope :list_of_dates, -> {select(:expiration_day).distinct}
 end
