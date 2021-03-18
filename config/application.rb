@@ -21,8 +21,17 @@ module TrackingAppApi
         resource(
           '*',
           headers: :any,
-          methods: [:get, :patch, :put, :delete, :post, :options]
+          methods: [:get, :patch, :put, :delete, :post, :options],
+          credentials: true
         )
+      end
+      allow do
+        origins 'https://vigorous-minsky-e3bf16.netlify.app'
+    
+        resource '*',
+          headers: :any,
+          methods: [:get, :post, :put, :patch, :delete, :options, :head],
+          credentials: true
       end
     end
     
