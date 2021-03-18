@@ -18,33 +18,28 @@ class TasksController < ApplicationController
     @task = current_user.tasks.new(task_params)
     @task.expiration_day = DateTime.now
     if @task.save
-        @progress= get_progress (@task)
-        @task.progress = @progress.to_i
-        @task.save
-        render_success(message: 'OK')
-      else
-        render json: @task.errors, status: :unprocessable_entity
-      end
+      @progress = get_progress @task
+      @task.progress = @progress.to_i
+      @task.save
+      render_success(message: 'OK')
+    else
+      render json: @task.errors, status: :unprocessable_entity
+    end
   end
 
   def update
     @task = Task.find(params[:id])
     @task.expiration_day = DateTime.now
     if @task.save
-        @task.progress= get_progress(@task).save
-        render_success(message: 'Task updated!')
-      else
-        render json: @task.errors, status: :unprocessable_entity
-      end
+      @task.progress = get_progress(@task).save
+      render_success(message: 'Task updated!')
+    else
+      render json: @task.errors, status: :unprocessable_entity
+    end
   end
-
-  #User.first.tasks.where(expiration_day: Date.today)
-  #Date.today-1
-  #scope :range, ->() { where("created_at < ? AND "created_at >?, Date.today-7, Date.today)}
 
   def destroy
     @task = Task.find(params[:id])
     @task.destroy
   end
-
 end

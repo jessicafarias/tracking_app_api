@@ -6,7 +6,7 @@ module Users
       init_resource(sign_up_params)
       if resource.save
         create_token_and_set_header(resource, resource_name)
-        render_success(message: headers["Access-Token"])
+        render_success(message: headers['Access-Token'])
       else
         render_error(422, object: resource)
       end
