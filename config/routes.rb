@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   resources :tasks
+  resources :tracks
 
   get 'user/index'
   get 'user/create'

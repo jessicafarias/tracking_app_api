@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  time: 1.5
+  goal: 1.5
+  progress: 1.5
+  day: 
+  task: one
+
+two:
+  time: 1.5
+  goal: 1.5
+  progress: 1.5
+  day: 
+  task: two

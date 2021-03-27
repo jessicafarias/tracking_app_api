@@ -1,14 +1,22 @@
 class Task < ApplicationRecord
   validates :name, presence: true
-  validates :time, presence: true, numericality: { less_than_or_equal_to: :goal }
   validates :img, presence: true
-  validates :goal, presence: true, numericality: { greater_than: 1, more_than_or_equal_to: :time }
   validates :user_id, presence: true
+  validates :expiration_day, presence: true
+  has_many :tracks, dependent: :destroy
+
+  scope :with_track, -> {
+                       select('tracks.id AS id, tracks.time, tracks.goal,
+                       tasks.name, tracks.day AS expiration_day,
+                       tasks.img, tracks.progress')
+                         .joins(:tracks)
+                     }
 
   belongs_to :user, class_name: 'User', foreign_key: 'user_id'
+
   scope :per_week, -> { where('expiration_day<=? AND expiration_day>?', Date.today - 7, Date.today - 14) }
-  scope :today, -> { where(expiration_day: Date.today) }
-  scope :yesterday, -> { where(expiration_day: Date.today - 1) }
-  scope :date, ->(date) { where('expiration_day=?', Date.parse(date)) }
+  scope :today, -> { joins(:tracks).where('tracks.day = ?', Date.today) }
+  scope :yesterday, -> { joins(:tracks).where('tracks.day = ?', Date.today-1) }
+  scope :date, ->(date) { joins(:tracks).where('tracks.day = ?',Date.parse(date)) }
   scope :list_of_dates, -> { select(:expiration_day).distinct }
 end
