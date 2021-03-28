@@ -40,6 +40,8 @@ gem 'bootsnap', '>= 1.4.2', require: false
 gem 'hirb', '~> 0.7.3'
 
 group :development, :test do
+  # Rspec test
+  gem 'rspec-rails', '~> 5.0.0'
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
 end
