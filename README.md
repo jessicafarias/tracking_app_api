@@ -126,7 +126,7 @@ const config = `{
 #### Get tasks selecting the date
 
 ```
-const url = `${baseUrl}/tasks/21-03-02`;
+const url = `${baseUrl}/tasks/30-03-2021`;
 const config = `{
     method: 'GET',
     mode: 'cors',
