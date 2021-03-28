@@ -11,7 +11,7 @@ class TasksController < ApplicationController
 
   def show
     set_lists
-    render json: @tasks.with_track
+    render json: @tasks
   end
 
   def create
@@ -40,17 +40,5 @@ class TasksController < ApplicationController
   def destroy
     @task = Task.find(params[:id])
     @task.destroy
-  end
-
-  def create_tracks(base_task)
-    @days = (base_task.expiration_day - Date.today).to_i
-    @days = 1 if @days <= 0
-    @days.times do |x|
-      @current_track = @task.tracks.new(track_params)
-      @current_track.day = Date.today + x
-      @progress = get_progress @current_track
-      @current_track.progress = @progress.to_i
-      @current_track.save
-    end
   end
 end
