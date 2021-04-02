@@ -39,11 +39,14 @@ gem 'bootsnap', '>= 1.4.2', require: false
 # Hirb provides a mini view framework for console applications and uses it to improve ripl(irb)'s default inspect output
 gem 'hirb', '~> 0.7.3'
 
+gem 'factory_bot_rails'
+
 group :development, :test do
   # Rspec test
   gem 'rspec-rails', '~> 5.0.0'
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
+  
 end
 
 group :development do
