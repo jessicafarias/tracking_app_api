@@ -13,8 +13,8 @@ class TracksController < ApplicationController
 
   def update
     @track = Track.find(params[:id])
-    @number= @track.time
-    @track.time= @number+1
+    @number = @track.time
+    @track.time = @number + 1
     if @track.save
       render_success(message: 'Track updated!')
     else
