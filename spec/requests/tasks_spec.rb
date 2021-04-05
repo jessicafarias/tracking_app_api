@@ -4,10 +4,10 @@ RSpec.describe 'Tasks', type: :request do
   let(:valid_attributes) do
     {
       name: 'Image',
-      expiration_day: Date.today+1,
+      expiration_day: Date.today + 1,
       time: 1,
       goal: 3,
-      img: 'http://res.cloudinary.com/ddcakt97r/image/upload/v1599940689/event_center/meta-studio-35-PJXAjKduyjQ-unsplash_onzzzc.jpg',
+      img: 'http://res.cloudinary.com/ddcakt97r/image/upload/v1599940689/event_center/meta-studio-35-PJXAjKduyjQ-unsplash_onzzzc.jpg'
     }
   end
 
