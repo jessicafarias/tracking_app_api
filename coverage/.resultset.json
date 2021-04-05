@@ -28,14 +28,11 @@
         "lines": [
           1,
           1,
-          0,
+          3,
           null,
-          0,
+          1,
           null,
-          0,
-          null,
-          null,
-          0,
+          1,
           null,
           null,
           0,
@@ -43,8 +40,18 @@
           null,
           0,
           null,
+          null,
           0,
           null,
+          1,
+          null,
+          null,
+          null,
+          1,
+          2,
+          2,
+          2,
+          1,
           null,
           null,
           1,
@@ -52,15 +59,8 @@
           1,
           1,
           1,
-          null,
-          null,
           1,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
+          1,
           0,
           0,
           null,
@@ -69,7 +69,7 @@
           1,
           null,
           1,
-          0,
+          1,
           null,
           null
         ]
@@ -78,20 +78,8 @@
         "lines": [
           1,
           1,
-          0,
+          1,
           null,
-          null
-        ]
-      },
-      "/home/jessica/Documents/Microverse/tracking_app_api/app/helpers/user_helper.rb": {
-        "lines": [
-          1,
-          null
-        ]
-      },
-      "/home/jessica/Documents/Microverse/tracking_app_api/app/helpers/users_helper.rb": {
-        "lines": [
-          1,
           null
         ]
       },
@@ -105,7 +93,7 @@
           1,
           null,
           1,
-          0,
+          3,
           null,
           null,
           null,
@@ -114,9 +102,9 @@
           1,
           null,
           1,
-          1,
-          1,
-          1,
+          2,
+          2,
+          2,
           1,
           1,
           0,
@@ -248,16 +236,16 @@
           null,
           null,
           1,
-          0,
-          0,
+          3,
+          3,
           null,
           null,
           1,
-          0,
+          1,
           null,
-          0,
-          0,
-          0,
+          1,
+          1,
+          1,
           0,
           null,
           0,
@@ -366,6 +354,6 @@
         }
       }
     },
-    "timestamp": 1617592165
+    "timestamp": 1617594784
   }
 }
