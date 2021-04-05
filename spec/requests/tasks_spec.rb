@@ -11,7 +11,7 @@ RSpec.describe 'Tasks', type: :request do
     }
   end
 
-  describe 'GET /index' do
+  describe 'Testing Task controller' do
     it 'returns status 200 when request a tasks of today' do
       user = create(:user)
       access_token = jwt_and_refresh_token(user, 'user')[0]
